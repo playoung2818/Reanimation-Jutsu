@@ -119,6 +119,20 @@ def build_rows(docs: list[tuple[str, str]]) -> list[dict]:
     return rows
 
 
+def split_rows(rows: list[dict], eval_ratio: float, seed: int) -> tuple[list[dict], list[dict]]:
+    if not 0 < eval_ratio < 1:
+        raise ValueError("The evaluation ratio must be between 0 and 1.")
+    titles = sorted({item["title"] for item in rows})
+    if len(titles) < 2:
+        raise ValueError("The dataset must contain at least two source documents.")
+    random.Random(seed).shuffle(titles)
+    eval_count = min(len(titles) - 1, max(1, round(len(titles) * eval_ratio)))
+    eval_titles = set(titles[:eval_count])
+    train_rows = [item for item in rows if item["title"] not in eval_titles]
+    eval_rows = [item for item in rows if item["title"] in eval_titles]
+    return train_rows, eval_rows
+
+
 def write_jsonl(path: Path, rows: list[dict]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as handle:
@@ -141,17 +155,14 @@ def main() -> int:
         "--synthetic-source",
         default="example_data/lincoln_synthetic_modern.jsonl",
     )
-    parser.add_argument("--eval-ratio", type=float, default=0.1)
+    parser.add_argument("--eval-ratio", type=float, default=0.1, help="Fraction of source document titles for validation")
     parser.add_argument("--seed", type=int, default=1809)
     args = parser.parse_args()
 
     text = Path(args.source).read_text(encoding="utf-8-sig")
     historical_rows = build_rows(documents(source_body(text)))
     rng = random.Random(args.seed)
-    rng.shuffle(historical_rows)
-    eval_count = max(1, round(len(historical_rows) * args.eval_ratio))
-    eval_rows = historical_rows[:eval_count]
-    train_rows = historical_rows[eval_count:]
+    train_rows, eval_rows = split_rows(historical_rows, args.eval_ratio, args.seed)
     synthetic_rows = read_jsonl(Path(args.synthetic_source))
     train_rows.extend(synthetic_rows)
     rng.shuffle(train_rows)

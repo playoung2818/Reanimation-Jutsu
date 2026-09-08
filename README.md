@@ -64,7 +64,9 @@ The `continuation` task uses a passage opening as the prompt. The remaining pass
 
 The modern-domain file contains reviewed responses about current issues. These examples separate historical evidence from reasoned speculation.
 
-The final train split contains 364 historical examples and 16 modern-domain examples. The validation split contains 40 historical examples.
+The final train split contains 381 historical examples and 16 modern-domain examples. The validation split contains 23 historical examples.
+
+The split reserves 10% of source document titles for validation. All examples with the same title stay in one split.
 
 ## Project origin
 

@@ -15,7 +15,9 @@ The source text comes from Project Gutenberg eBook 14721, *Speeches & Letters of
 
 The dataset includes topic-response, passage-continuation, and reviewed modern-domain tasks.
 
-The train split contains 364 historical rows and 16 synthetic rows across 16 modern domains. The validation split contains 40 historical rows.
+The train split contains 381 historical rows and 16 synthetic rows across 16 modern domains. The validation split contains 23 historical rows.
+
+The split reserves 10% of source document titles for validation. All examples with the same title stay in one split. Synthetic examples appear only in the train split.
 
 Synthetic rows include `synthetic`, `modern_domain`, and `historical_basis` fields. They distinguish documented principles from speculative analysis.
 

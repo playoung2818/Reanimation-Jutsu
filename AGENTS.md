@@ -28,9 +28,9 @@ Verify the row counts.
 wc -l example_data/lincoln_train.jsonl example_data/lincoln_eval.jsonl
 ```
 
-Verify that the train file contains 380 rows.
+Verify that the train file contains 397 rows.
 
-Verify that the validation file contains 40 rows.
+Verify that the validation file contains 23 rows.
 
 ## 2. Upload the Lincoln dataset
 

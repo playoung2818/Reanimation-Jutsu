@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 import gradio as gr
 import spaces
@@ -8,7 +9,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 
 BASE_MODEL = "Qwen/Qwen2.5-7B-Instruct"
-QIAN_ADAPTER = "."
+QIAN_ADAPTER = str(Path(__file__).resolve().parent)
 LINCOLN_ADAPTER = "Playoung2818/lincoln-qwen2.5-7b-lora"
 HF_TOKEN = os.getenv("HF_TOKEN")
 QIAN_INSTRUCTION = "请用钱钟书式的讽刺、机智和比喻回答下面的问题或续写下面的文字。"
@@ -27,6 +28,11 @@ def load_model() -> None:
     global model, tokenizer
     if model is not None:
         return
+
+    for filename in ("adapter_config.json", "adapter_model.safetensors"):
+        adapter_file = Path(QIAN_ADAPTER) / filename
+        if not adapter_file.is_file():
+            raise FileNotFoundError(f"Required Qian adapter file is missing: {adapter_file}")
 
     tokenizer = AutoTokenizer.from_pretrained(
         BASE_MODEL,
