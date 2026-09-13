@@ -131,7 +131,6 @@ dmypy.json
 
 # Project data and model artifacts
 围城.txt
-example_data/weicheng_*.jsonl
 saved_models/
 models/
 outputs/

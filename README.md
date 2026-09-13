@@ -19,7 +19,7 @@ Dataset preparation script
       |
       +--> Historical topic-response examples
       +--> Historical continuation examples
-      +--> Reviewed modern-domain examples
+      +--> Reviewed modern-domain examples (lincoln_synthetic_modern)
       |
       v
 Train and validation JSONL files
@@ -54,6 +54,14 @@ Two-tab Gradio Space
 
 ## Data design
 
+The [dataset playground](Dataset_Playground.ipynb) provides dataset edits, experimental copies, and a small LoRA experiment in one notebook. It compares model responses after training on original and edited data.
+
+The Qian persona uses examples from *围城* (Weicheng). Its canonical datasets are `example_data/qianzhongshu_train.jsonl` and `example_data/qianzhongshu_eval.jsonl`.
+
+These files contain 300 train examples and 26 validation examples. Both Qian training scripts use these files. The duplicate `weicheng_*.jsonl` files were removed.
+
+The script `scripts/prepare_weicheng_dataset.py` creates the Qian datasets from `围城.txt`.
+
 The Lincoln source comes from Project Gutenberg eBook 14721.
 
 The preparation script extracts documents, splits passages, and creates two historical task types.
@@ -73,4 +81,3 @@ The split reserves 10% of source document titles for validation. All examples wi
 This workspace started from [Suffoquer-fang/LuXun-GPT](https://github.com/Suffoquer-fang/LuXun-GPT).
 
 The current workflow uses Qwen2.5, PEFT, TRL, Hugging Face Jobs, and Gradio.
-

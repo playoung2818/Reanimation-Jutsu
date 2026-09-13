@@ -81,8 +81,8 @@ def write_jsonl(path: Path, rows: list[dict[str, str]]) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--source", default="围城.txt")
-    parser.add_argument("--train-out", default="example_data/weicheng_train.jsonl")
-    parser.add_argument("--eval-out", default="example_data/weicheng_eval.jsonl")
+    parser.add_argument("--train-out", default="example_data/qianzhongshu_train.jsonl")
+    parser.add_argument("--eval-out", default="example_data/qianzhongshu_eval.jsonl")
     parser.add_argument("--eval-ratio", type=float, default=0.08)
     parser.add_argument("--seed", type=int, default=2818)
     parser.add_argument("--min-input-chars", type=int, default=120)
