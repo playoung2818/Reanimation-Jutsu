@@ -13,7 +13,7 @@ from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
     BitsAndBytesConfig,
-    DataCollatorForLanguageModeling,
+    DataCollatorForSeq2Seq,
     Trainer,
     TrainingArguments,
 )
@@ -46,18 +46,29 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--lora_alpha", type=int, default=32)
     p.add_argument("--lora_dropout", type=float, default=0.05)
     p.add_argument("--bf16", action="store_true")
+    p.add_argument(
+        "--train_on_prompt",
+        action="store_true",
+        help="Also compute loss on the instruction/input prompt. Default trains only on the target output.",
+    )
     return p.parse_args()
 
 
-def build_text(instruction: str, inp: str, out: str) -> str:
+def build_prompt(instruction: str, inp: str) -> str:
     return (
         "### 指令:\n"
         f"{instruction}\n\n"
         "### 输入:\n"
         f"{inp}\n\n"
         "### 输出:\n"
-        f"{out}"
     )
+
+
+def build_text(instruction: str, inp: str, out: str, eos_token: str | None = None) -> str:
+    text = f"{build_prompt(instruction, inp)}{out}"
+    if eos_token:
+        text += eos_token
+    return text
 
 
 def main() -> int:
@@ -100,16 +111,33 @@ def main() -> int:
 
     def preprocess(batch):
         texts = [
-            build_text(inst, inp, out)
+            build_text(inst, inp, out, tokenizer.eos_token)
             for inst, inp, out in zip(batch["instruction"], batch["input"], batch["output"])
         ]
-        tok = tokenizer(
+        tokenized = tokenizer(
             texts,
             truncation=True,
             max_length=args.max_length,
             padding=False,
         )
-        return tok
+
+        labels = [ids.copy() for ids in tokenized["input_ids"]]
+        if not args.train_on_prompt:
+            prompts = [
+                build_prompt(inst, inp)
+                for inst, inp in zip(batch["instruction"], batch["input"])
+            ]
+            prompt_tokenized = tokenizer(
+                prompts,
+                truncation=True,
+                max_length=args.max_length,
+                padding=False,
+            )
+            for row_labels, prompt_ids in zip(labels, prompt_tokenized["input_ids"]):
+                prompt_len = min(len(prompt_ids), len(row_labels))
+                row_labels[:prompt_len] = [-100] * prompt_len
+        tokenized["labels"] = labels
+        return tokenized
 
     remove_cols = ds["train"].column_names
     tokenized = ds.map(preprocess, batched=True, remove_columns=remove_cols)
@@ -147,7 +175,12 @@ def main() -> int:
             evaluation_strategy=strategy_value,
         )
 
-    collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
+    collator = DataCollatorForSeq2Seq(
+        tokenizer=tokenizer,
+        model=model,
+        label_pad_token_id=-100,
+        padding=True,
+    )
 
     trainer_kwargs = dict(
         model=model,

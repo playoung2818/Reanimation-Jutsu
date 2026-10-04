@@ -1,0 +1,2181 @@
+{
+  "source_file": "围城.txt",
+  "total_pairs": 310,
+  "preview_pairs": 10,
+  "additional_pairs": 300,
+  "preview_replacement": "Preview row 7 was replaced with an intact sentence without a country reference.",
+  "input_method": "Individually written modern-Chinese paraphrases; not automatic clause deletion.",
+  "output_method": "Exact source sentences, without deleting or replacing names.",
+  "rows": [
+    {
+      "row": 1,
+      "chapter": "第一章",
+      "source_line": 119,
+      "source_offset": 4423,
+      "source_length": 39
+    },
+    {
+      "row": 2,
+      "chapter": "第一章",
+      "source_line": 109,
+      "source_offset": 3140,
+      "source_length": 60
+    },
+    {
+      "row": 3,
+      "chapter": "第一章",
+      "source_line": 137,
+      "source_offset": 7858,
+      "source_length": 22
+    },
+    {
+      "row": 4,
+      "chapter": "第一章",
+      "source_line": 107,
+      "source_offset": 2613,
+      "source_length": 61
+    },
+    {
+      "row": 5,
+      "chapter": "第一章",
+      "source_line": 143,
+      "source_offset": 10282,
+      "source_length": 24
+    },
+    {
+      "row": 6,
+      "chapter": "第一章",
+      "source_line": 105,
+      "source_offset": 2026,
+      "source_length": 58
+    },
+    {
+      "row": 7,
+      "chapter": "第二章",
+      "source_line": 290,
+      "source_offset": 21028,
+      "source_length": 27
+    },
+    {
+      "row": 8,
+      "chapter": "第一章",
+      "source_line": 107,
+      "source_offset": 2343,
+      "source_length": 30
+    },
+    {
+      "row": 9,
+      "chapter": "第一章",
+      "source_line": 109,
+      "source_offset": 2844,
+      "source_length": 34
+    },
+    {
+      "row": 10,
+      "chapter": "第一章",
+      "source_line": 143,
+      "source_offset": 10735,
+      "source_length": 26
+    },
+    {
+      "row": 11,
+      "chapter": "第一章",
+      "source_line": 109,
+      "source_offset": 3100,
+      "source_length": 40
+    },
+    {
+      "row": 12,
+      "chapter": "第一章",
+      "source_line": 153,
+      "source_offset": 11343,
+      "source_length": 50
+    },
+    {
+      "row": 13,
+      "chapter": "第一章",
+      "source_line": 153,
+      "source_offset": 11393,
+      "source_length": 61
+    },
+    {
+      "row": 14,
+      "chapter": "第二章",
+      "source_line": 280,
+      "source_offset": 20332,
+      "source_length": 29
+    },
+    {
+      "row": 15,
+      "chapter": "第二章",
+      "source_line": 290,
+      "source_offset": 20909,
+      "source_length": 42
+    },
+    {
+      "row": 16,
+      "chapter": "第二章",
+      "source_line": 290,
+      "source_offset": 21055,
+      "source_length": 42
+    },
+    {
+      "row": 17,
+      "chapter": "第二章",
+      "source_line": 290,
+      "source_offset": 21114,
+      "source_length": 25
+    },
+    {
+      "row": 18,
+      "chapter": "第二章",
+      "source_line": 290,
+      "source_offset": 21139,
+      "source_length": 54
+    },
+    {
+      "row": 19,
+      "chapter": "第二章",
+      "source_line": 316,
+      "source_offset": 23144,
+      "source_length": 47
+    },
+    {
+      "row": 20,
+      "chapter": "第二章",
+      "source_line": 318,
+      "source_offset": 23878,
+      "source_length": 59
+    },
+    {
+      "row": 21,
+      "chapter": "第二章",
+      "source_line": 318,
+      "source_offset": 24106,
+      "source_length": 14
+    },
+    {
+      "row": 22,
+      "chapter": "第二章",
+      "source_line": 318,
+      "source_offset": 24147,
+      "source_length": 41
+    },
+    {
+      "row": 23,
+      "chapter": "第三章",
+      "source_line": 397,
+      "source_offset": 31215,
+      "source_length": 31
+    },
+    {
+      "row": 24,
+      "chapter": "第三章",
+      "source_line": 397,
+      "source_offset": 31269,
+      "source_length": 43
+    },
+    {
+      "row": 25,
+      "chapter": "第三章",
+      "source_line": 399,
+      "source_offset": 31444,
+      "source_length": 41
+    },
+    {
+      "row": 26,
+      "chapter": "第三章",
+      "source_line": 399,
+      "source_offset": 31485,
+      "source_length": 46
+    },
+    {
+      "row": 27,
+      "chapter": "第三章",
+      "source_line": 399,
+      "source_offset": 31572,
+      "source_length": 29
+    },
+    {
+      "row": 28,
+      "chapter": "第三章",
+      "source_line": 399,
+      "source_offset": 31659,
+      "source_length": 21
+    },
+    {
+      "row": 29,
+      "chapter": "第三章",
+      "source_line": 399,
+      "source_offset": 31739,
+      "source_length": 28
+    },
+    {
+      "row": 30,
+      "chapter": "第三章",
+      "source_line": 401,
+      "source_offset": 31906,
+      "source_length": 47
+    },
+    {
+      "row": 31,
+      "chapter": "第三章",
+      "source_line": 407,
+      "source_offset": 32801,
+      "source_length": 26
+    },
+    {
+      "row": 32,
+      "chapter": "第三章",
+      "source_line": 407,
+      "source_offset": 32827,
+      "source_length": 24
+    },
+    {
+      "row": 33,
+      "chapter": "第三章",
+      "source_line": 413,
+      "source_offset": 33236,
+      "source_length": 49
+    },
+    {
+      "row": 34,
+      "chapter": "第三章",
+      "source_line": 413,
+      "source_offset": 33285,
+      "source_length": 41
+    },
+    {
+      "row": 35,
+      "chapter": "第三章",
+      "source_line": 413,
+      "source_offset": 33401,
+      "source_length": 40
+    },
+    {
+      "row": 36,
+      "chapter": "第三章",
+      "source_line": 433,
+      "source_offset": 34340,
+      "source_length": 50
+    },
+    {
+      "row": 37,
+      "chapter": "第三章",
+      "source_line": 465,
+      "source_offset": 36121,
+      "source_length": 16
+    },
+    {
+      "row": 38,
+      "chapter": "第三章",
+      "source_line": 471,
+      "source_offset": 37348,
+      "source_length": 23
+    },
+    {
+      "row": 39,
+      "chapter": "第三章",
+      "source_line": 493,
+      "source_offset": 38198,
+      "source_length": 16
+    },
+    {
+      "row": 40,
+      "chapter": "第三章",
+      "source_line": 493,
+      "source_offset": 38417,
+      "source_length": 31
+    },
+    {
+      "row": 41,
+      "chapter": "第三章",
+      "source_line": 587,
+      "source_offset": 42536,
+      "source_length": 27
+    },
+    {
+      "row": 42,
+      "chapter": "第三章",
+      "source_line": 587,
+      "source_offset": 42842,
+      "source_length": 58
+    },
+    {
+      "row": 43,
+      "chapter": "第三章",
+      "source_line": 637,
+      "source_offset": 45389,
+      "source_length": 47
+    },
+    {
+      "row": 44,
+      "chapter": "第三章",
+      "source_line": 639,
+      "source_offset": 45528,
+      "source_length": 26
+    },
+    {
+      "row": 45,
+      "chapter": "第三章",
+      "source_line": 667,
+      "source_offset": 47161,
+      "source_length": 19
+    },
+    {
+      "row": 46,
+      "chapter": "第三章",
+      "source_line": 791,
+      "source_offset": 51371,
+      "source_length": 17
+    },
+    {
+      "row": 47,
+      "chapter": "第三章",
+      "source_line": 805,
+      "source_offset": 51948,
+      "source_length": 34
+    },
+    {
+      "row": 48,
+      "chapter": "第三章",
+      "source_line": 857,
+      "source_offset": 53239,
+      "source_length": 35
+    },
+    {
+      "row": 49,
+      "chapter": "第三章",
+      "source_line": 861,
+      "source_offset": 53957,
+      "source_length": 39
+    },
+    {
+      "row": 50,
+      "chapter": "第三章",
+      "source_line": 879,
+      "source_offset": 55047,
+      "source_length": 69
+    },
+    {
+      "row": 51,
+      "chapter": "第三章",
+      "source_line": 1023,
+      "source_offset": 61437,
+      "source_length": 47
+    },
+    {
+      "row": 52,
+      "chapter": "第三章",
+      "source_line": 1089,
+      "source_offset": 64930,
+      "source_length": 26
+    },
+    {
+      "row": 53,
+      "chapter": "第三章",
+      "source_line": 1091,
+      "source_offset": 65071,
+      "source_length": 38
+    },
+    {
+      "row": 54,
+      "chapter": "第三章",
+      "source_line": 1091,
+      "source_offset": 65109,
+      "source_length": 45
+    },
+    {
+      "row": 55,
+      "chapter": "第三章",
+      "source_line": 1117,
+      "source_offset": 66557,
+      "source_length": 30
+    },
+    {
+      "row": 56,
+      "chapter": "第三章",
+      "source_line": 1117,
+      "source_offset": 66691,
+      "source_length": 30
+    },
+    {
+      "row": 57,
+      "chapter": "第三章",
+      "source_line": 1155,
+      "source_offset": 68423,
+      "source_length": 41
+    },
+    {
+      "row": 58,
+      "chapter": "第三章",
+      "source_line": 1159,
+      "source_offset": 69578,
+      "source_length": 52
+    },
+    {
+      "row": 59,
+      "chapter": "第三章",
+      "source_line": 1159,
+      "source_offset": 69712,
+      "source_length": 62
+    },
+    {
+      "row": 60,
+      "chapter": "第三章",
+      "source_line": 1159,
+      "source_offset": 69882,
+      "source_length": 49
+    },
+    {
+      "row": 61,
+      "chapter": "第四章",
+      "source_line": 1172,
+      "source_offset": 70613,
+      "source_length": 50
+    },
+    {
+      "row": 62,
+      "chapter": "第四章",
+      "source_line": 1172,
+      "source_offset": 70663,
+      "source_length": 49
+    },
+    {
+      "row": 63,
+      "chapter": "第四章",
+      "source_line": 1172,
+      "source_offset": 70712,
+      "source_length": 57
+    },
+    {
+      "row": 64,
+      "chapter": "第四章",
+      "source_line": 1172,
+      "source_offset": 70796,
+      "source_length": 64
+    },
+    {
+      "row": 65,
+      "chapter": "第四章",
+      "source_line": 1174,
+      "source_offset": 71395,
+      "source_length": 63
+    },
+    {
+      "row": 66,
+      "chapter": "第四章",
+      "source_line": 1194,
+      "source_offset": 73380,
+      "source_length": 34
+    },
+    {
+      "row": 67,
+      "chapter": "第四章",
+      "source_line": 1220,
+      "source_offset": 78086,
+      "source_length": 38
+    },
+    {
+      "row": 68,
+      "chapter": "第四章",
+      "source_line": 1230,
+      "source_offset": 79582,
+      "source_length": 23
+    },
+    {
+      "row": 69,
+      "chapter": "第四章",
+      "source_line": 1240,
+      "source_offset": 79981,
+      "source_length": 54
+    },
+    {
+      "row": 70,
+      "chapter": "第四章",
+      "source_line": 1240,
+      "source_offset": 80375,
+      "source_length": 27
+    },
+    {
+      "row": 71,
+      "chapter": "第四章",
+      "source_line": 1300,
+      "source_offset": 83577,
+      "source_length": 56
+    },
+    {
+      "row": 72,
+      "chapter": "第四章",
+      "source_line": 1316,
+      "source_offset": 84672,
+      "source_length": 66
+    },
+    {
+      "row": 73,
+      "chapter": "第四章",
+      "source_line": 1316,
+      "source_offset": 84789,
+      "source_length": 24
+    },
+    {
+      "row": 74,
+      "chapter": "第五章",
+      "source_line": 1417,
+      "source_offset": 89230,
+      "source_length": 25
+    },
+    {
+      "row": 75,
+      "chapter": "第五章",
+      "source_line": 1417,
+      "source_offset": 89340,
+      "source_length": 36
+    },
+    {
+      "row": 76,
+      "chapter": "第五章",
+      "source_line": 1423,
+      "source_offset": 89691,
+      "source_length": 57
+    },
+    {
+      "row": 77,
+      "chapter": "第五章",
+      "source_line": 1453,
+      "source_offset": 91348,
+      "source_length": 54
+    },
+    {
+      "row": 78,
+      "chapter": "第五章",
+      "source_line": 1459,
+      "source_offset": 93615,
+      "source_length": 51
+    },
+    {
+      "row": 79,
+      "chapter": "第五章",
+      "source_line": 1459,
+      "source_offset": 93714,
+      "source_length": 61
+    },
+    {
+      "row": 80,
+      "chapter": "第五章",
+      "source_line": 1463,
+      "source_offset": 94996,
+      "source_length": 36
+    },
+    {
+      "row": 81,
+      "chapter": "第五章",
+      "source_line": 1463,
+      "source_offset": 95116,
+      "source_length": 29
+    },
+    {
+      "row": 82,
+      "chapter": "第五章",
+      "source_line": 1463,
+      "source_offset": 95145,
+      "source_length": 50
+    },
+    {
+      "row": 83,
+      "chapter": "第五章",
+      "source_line": 1463,
+      "source_offset": 95320,
+      "source_length": 21
+    },
+    {
+      "row": 84,
+      "chapter": "第五章",
+      "source_line": 1465,
+      "source_offset": 96017,
+      "source_length": 51
+    },
+    {
+      "row": 85,
+      "chapter": "第五章",
+      "source_line": 1465,
+      "source_offset": 97172,
+      "source_length": 42
+    },
+    {
+      "row": 86,
+      "chapter": "第五章",
+      "source_line": 1473,
+      "source_offset": 98331,
+      "source_length": 25
+    },
+    {
+      "row": 87,
+      "chapter": "第五章",
+      "source_line": 1475,
+      "source_offset": 98800,
+      "source_length": 68
+    },
+    {
+      "row": 88,
+      "chapter": "第五章",
+      "source_line": 1475,
+      "source_offset": 99015,
+      "source_length": 57
+    },
+    {
+      "row": 89,
+      "chapter": "第五章",
+      "source_line": 1475,
+      "source_offset": 99149,
+      "source_length": 34
+    },
+    {
+      "row": 90,
+      "chapter": "第五章",
+      "source_line": 1475,
+      "source_offset": 99224,
+      "source_length": 50
+    },
+    {
+      "row": 91,
+      "chapter": "第五章",
+      "source_line": 1477,
+      "source_offset": 100044,
+      "source_length": 73
+    },
+    {
+      "row": 92,
+      "chapter": "第五章",
+      "source_line": 1479,
+      "source_offset": 101161,
+      "source_length": 30
+    },
+    {
+      "row": 93,
+      "chapter": "第五章",
+      "source_line": 1481,
+      "source_offset": 101760,
+      "source_length": 65
+    },
+    {
+      "row": 94,
+      "chapter": "第五章",
+      "source_line": 1481,
+      "source_offset": 101825,
+      "source_length": 46
+    },
+    {
+      "row": 95,
+      "chapter": "第五章",
+      "source_line": 1483,
+      "source_offset": 102494,
+      "source_length": 42
+    },
+    {
+      "row": 96,
+      "chapter": "第五章",
+      "source_line": 1487,
+      "source_offset": 104020,
+      "source_length": 43
+    },
+    {
+      "row": 97,
+      "chapter": "第五章",
+      "source_line": 1487,
+      "source_offset": 104063,
+      "source_length": 55
+    },
+    {
+      "row": 98,
+      "chapter": "第五章",
+      "source_line": 1537,
+      "source_offset": 116207,
+      "source_length": 34
+    },
+    {
+      "row": 99,
+      "chapter": "第五章",
+      "source_line": 1543,
+      "source_offset": 117972,
+      "source_length": 36
+    },
+    {
+      "row": 100,
+      "chapter": "第五章",
+      "source_line": 1545,
+      "source_offset": 118341,
+      "source_length": 58
+    },
+    {
+      "row": 101,
+      "chapter": "第五章",
+      "source_line": 1547,
+      "source_offset": 118836,
+      "source_length": 30
+    },
+    {
+      "row": 102,
+      "chapter": "第五章",
+      "source_line": 1547,
+      "source_offset": 118995,
+      "source_length": 34
+    },
+    {
+      "row": 103,
+      "chapter": "第五章",
+      "source_line": 1547,
+      "source_offset": 119029,
+      "source_length": 64
+    },
+    {
+      "row": 104,
+      "chapter": "第五章",
+      "source_line": 1547,
+      "source_offset": 119111,
+      "source_length": 48
+    },
+    {
+      "row": 105,
+      "chapter": "第五章",
+      "source_line": 1549,
+      "source_offset": 120186,
+      "source_length": 73
+    },
+    {
+      "row": 106,
+      "chapter": "第五章",
+      "source_line": 1551,
+      "source_offset": 120381,
+      "source_length": 30
+    },
+    {
+      "row": 107,
+      "chapter": "第五章",
+      "source_line": 1551,
+      "source_offset": 120411,
+      "source_length": 55
+    },
+    {
+      "row": 108,
+      "chapter": "第五章",
+      "source_line": 1551,
+      "source_offset": 120569,
+      "source_length": 34
+    },
+    {
+      "row": 109,
+      "chapter": "第五章",
+      "source_line": 1553,
+      "source_offset": 121362,
+      "source_length": 15
+    },
+    {
+      "row": 110,
+      "chapter": "第五章",
+      "source_line": 1553,
+      "source_offset": 121419,
+      "source_length": 27
+    },
+    {
+      "row": 111,
+      "chapter": "第五章",
+      "source_line": 1555,
+      "source_offset": 121789,
+      "source_length": 45
+    },
+    {
+      "row": 112,
+      "chapter": "第六章",
+      "source_line": 1578,
+      "source_offset": 122512,
+      "source_length": 42
+    },
+    {
+      "row": 113,
+      "chapter": "第六章",
+      "source_line": 1584,
+      "source_offset": 124412,
+      "source_length": 36
+    },
+    {
+      "row": 114,
+      "chapter": "第六章",
+      "source_line": 1602,
+      "source_offset": 125979,
+      "source_length": 15
+    },
+    {
+      "row": 115,
+      "chapter": "第六章",
+      "source_line": 1642,
+      "source_offset": 129135,
+      "source_length": 44
+    },
+    {
+      "row": 116,
+      "chapter": "第六章",
+      "source_line": 1660,
+      "source_offset": 129811,
+      "source_length": 34
+    },
+    {
+      "row": 117,
+      "chapter": "第六章",
+      "source_line": 1670,
+      "source_offset": 130286,
+      "source_length": 47
+    },
+    {
+      "row": 118,
+      "chapter": "第六章",
+      "source_line": 1670,
+      "source_offset": 130460,
+      "source_length": 21
+    },
+    {
+      "row": 119,
+      "chapter": "第六章",
+      "source_line": 1702,
+      "source_offset": 131753,
+      "source_length": 58
+    },
+    {
+      "row": 120,
+      "chapter": "第六章",
+      "source_line": 1704,
+      "source_offset": 132318,
+      "source_length": 37
+    },
+    {
+      "row": 121,
+      "chapter": "第六章",
+      "source_line": 1726,
+      "source_offset": 133576,
+      "source_length": 39
+    },
+    {
+      "row": 122,
+      "chapter": "第六章",
+      "source_line": 1742,
+      "source_offset": 134676,
+      "source_length": 18
+    },
+    {
+      "row": 123,
+      "chapter": "第六章",
+      "source_line": 1752,
+      "source_offset": 135078,
+      "source_length": 66
+    },
+    {
+      "row": 124,
+      "chapter": "第六章",
+      "source_line": 1754,
+      "source_offset": 135464,
+      "source_length": 46
+    },
+    {
+      "row": 125,
+      "chapter": "第六章",
+      "source_line": 1756,
+      "source_offset": 135863,
+      "source_length": 53
+    },
+    {
+      "row": 126,
+      "chapter": "第六章",
+      "source_line": 1756,
+      "source_offset": 135916,
+      "source_length": 56
+    },
+    {
+      "row": 127,
+      "chapter": "第六章",
+      "source_line": 1758,
+      "source_offset": 136141,
+      "source_length": 21
+    },
+    {
+      "row": 128,
+      "chapter": "第六章",
+      "source_line": 1758,
+      "source_offset": 136212,
+      "source_length": 44
+    },
+    {
+      "row": 129,
+      "chapter": "第六章",
+      "source_line": 1758,
+      "source_offset": 136320,
+      "source_length": 35
+    },
+    {
+      "row": 130,
+      "chapter": "第六章",
+      "source_line": 1760,
+      "source_offset": 136698,
+      "source_length": 64
+    },
+    {
+      "row": 131,
+      "chapter": "第六章",
+      "source_line": 1808,
+      "source_offset": 139594,
+      "source_length": 32
+    },
+    {
+      "row": 132,
+      "chapter": "第六章",
+      "source_line": 1842,
+      "source_offset": 144054,
+      "source_length": 62
+    },
+    {
+      "row": 133,
+      "chapter": "第六章",
+      "source_line": 1842,
+      "source_offset": 144283,
+      "source_length": 24
+    },
+    {
+      "row": 134,
+      "chapter": "第六章",
+      "source_line": 1842,
+      "source_offset": 144444,
+      "source_length": 24
+    },
+    {
+      "row": 135,
+      "chapter": "第六章",
+      "source_line": 1844,
+      "source_offset": 144569,
+      "source_length": 32
+    },
+    {
+      "row": 136,
+      "chapter": "第六章",
+      "source_line": 1846,
+      "source_offset": 144898,
+      "source_length": 48
+    },
+    {
+      "row": 137,
+      "chapter": "第六章",
+      "source_line": 1846,
+      "source_offset": 145040,
+      "source_length": 32
+    },
+    {
+      "row": 138,
+      "chapter": "第六章",
+      "source_line": 1864,
+      "source_offset": 146446,
+      "source_length": 24
+    },
+    {
+      "row": 139,
+      "chapter": "第七章",
+      "source_line": 1875,
+      "source_offset": 146945,
+      "source_length": 55
+    },
+    {
+      "row": 140,
+      "chapter": "第七章",
+      "source_line": 1875,
+      "source_offset": 147126,
+      "source_length": 25
+    },
+    {
+      "row": 141,
+      "chapter": "第七章",
+      "source_line": 1875,
+      "source_offset": 147331,
+      "source_length": 33
+    },
+    {
+      "row": 142,
+      "chapter": "第七章",
+      "source_line": 1883,
+      "source_offset": 149050,
+      "source_length": 31
+    },
+    {
+      "row": 143,
+      "chapter": "第七章",
+      "source_line": 1921,
+      "source_offset": 151948,
+      "source_length": 22
+    },
+    {
+      "row": 144,
+      "chapter": "第七章",
+      "source_line": 1925,
+      "source_offset": 152893,
+      "source_length": 21
+    },
+    {
+      "row": 145,
+      "chapter": "第七章",
+      "source_line": 1929,
+      "source_offset": 153840,
+      "source_length": 30
+    },
+    {
+      "row": 146,
+      "chapter": "第七章",
+      "source_line": 1943,
+      "source_offset": 155995,
+      "source_length": 24
+    },
+    {
+      "row": 147,
+      "chapter": "第七章",
+      "source_line": 2033,
+      "source_offset": 161914,
+      "source_length": 41
+    },
+    {
+      "row": 148,
+      "chapter": "第七章",
+      "source_line": 2033,
+      "source_offset": 162182,
+      "source_length": 22
+    },
+    {
+      "row": 149,
+      "chapter": "第七章",
+      "source_line": 2037,
+      "source_offset": 163262,
+      "source_length": 18
+    },
+    {
+      "row": 150,
+      "chapter": "第七章",
+      "source_line": 2041,
+      "source_offset": 164042,
+      "source_length": 27
+    },
+    {
+      "row": 151,
+      "chapter": "第七章",
+      "source_line": 2043,
+      "source_offset": 164493,
+      "source_length": 19
+    },
+    {
+      "row": 152,
+      "chapter": "第七章",
+      "source_line": 2055,
+      "source_offset": 165146,
+      "source_length": 23
+    },
+    {
+      "row": 153,
+      "chapter": "第七章",
+      "source_line": 2113,
+      "source_offset": 168618,
+      "source_length": 28
+    },
+    {
+      "row": 154,
+      "chapter": "第七章",
+      "source_line": 2113,
+      "source_offset": 168664,
+      "source_length": 66
+    },
+    {
+      "row": 155,
+      "chapter": "第七章",
+      "source_line": 2115,
+      "source_offset": 169229,
+      "source_length": 68
+    },
+    {
+      "row": 156,
+      "chapter": "第七章",
+      "source_line": 2119,
+      "source_offset": 170404,
+      "source_length": 64
+    },
+    {
+      "row": 157,
+      "chapter": "第八章",
+      "source_line": 2224,
+      "source_offset": 177481,
+      "source_length": 45
+    },
+    {
+      "row": 158,
+      "chapter": "第八章",
+      "source_line": 2226,
+      "source_offset": 178014,
+      "source_length": 33
+    },
+    {
+      "row": 159,
+      "chapter": "第八章",
+      "source_line": 2238,
+      "source_offset": 180471,
+      "source_length": 40
+    },
+    {
+      "row": 160,
+      "chapter": "第八章",
+      "source_line": 2238,
+      "source_offset": 180646,
+      "source_length": 46
+    },
+    {
+      "row": 161,
+      "chapter": "第八章",
+      "source_line": 2238,
+      "source_offset": 180692,
+      "source_length": 26
+    },
+    {
+      "row": 162,
+      "chapter": "第八章",
+      "source_line": 2244,
+      "source_offset": 181963,
+      "source_length": 22
+    },
+    {
+      "row": 163,
+      "chapter": "第八章",
+      "source_line": 2274,
+      "source_offset": 185812,
+      "source_length": 64
+    },
+    {
+      "row": 164,
+      "chapter": "第八章",
+      "source_line": 2274,
+      "source_offset": 186205,
+      "source_length": 53
+    },
+    {
+      "row": 165,
+      "chapter": "第八章",
+      "source_line": 2274,
+      "source_offset": 186258,
+      "source_length": 34
+    },
+    {
+      "row": 166,
+      "chapter": "第八章",
+      "source_line": 2318,
+      "source_offset": 188323,
+      "source_length": 31
+    },
+    {
+      "row": 167,
+      "chapter": "第八章",
+      "source_line": 2330,
+      "source_offset": 190835,
+      "source_length": 16
+    },
+    {
+      "row": 168,
+      "chapter": "第八章",
+      "source_line": 2344,
+      "source_offset": 193143,
+      "source_length": 30
+    },
+    {
+      "row": 169,
+      "chapter": "第八章",
+      "source_line": 2374,
+      "source_offset": 194996,
+      "source_length": 25
+    },
+    {
+      "row": 170,
+      "chapter": "第八章",
+      "source_line": 2382,
+      "source_offset": 196134,
+      "source_length": 16
+    },
+    {
+      "row": 171,
+      "chapter": "第八章",
+      "source_line": 2382,
+      "source_offset": 196166,
+      "source_length": 20
+    },
+    {
+      "row": 172,
+      "chapter": "第九章",
+      "source_line": 2395,
+      "source_offset": 197185,
+      "source_length": 19
+    },
+    {
+      "row": 173,
+      "chapter": "第九章",
+      "source_line": 2395,
+      "source_offset": 197268,
+      "source_length": 25
+    },
+    {
+      "row": 174,
+      "chapter": "第九章",
+      "source_line": 2427,
+      "source_offset": 203793,
+      "source_length": 38
+    },
+    {
+      "row": 175,
+      "chapter": "第九章",
+      "source_line": 2431,
+      "source_offset": 204793,
+      "source_length": 17
+    },
+    {
+      "row": 176,
+      "chapter": "第九章",
+      "source_line": 2433,
+      "source_offset": 205133,
+      "source_length": 42
+    },
+    {
+      "row": 177,
+      "chapter": "第九章",
+      "source_line": 2435,
+      "source_offset": 205464,
+      "source_length": 22
+    },
+    {
+      "row": 178,
+      "chapter": "第九章",
+      "source_line": 2435,
+      "source_offset": 205486,
+      "source_length": 33
+    },
+    {
+      "row": 179,
+      "chapter": "第九章",
+      "source_line": 2435,
+      "source_offset": 205673,
+      "source_length": 18
+    },
+    {
+      "row": 180,
+      "chapter": "第九章",
+      "source_line": 2441,
+      "source_offset": 207157,
+      "source_length": 34
+    },
+    {
+      "row": 181,
+      "chapter": "第九章",
+      "source_line": 2457,
+      "source_offset": 209991,
+      "source_length": 35
+    },
+    {
+      "row": 182,
+      "chapter": "第九章",
+      "source_line": 2459,
+      "source_offset": 210224,
+      "source_length": 41
+    },
+    {
+      "row": 183,
+      "chapter": "第九章",
+      "source_line": 2459,
+      "source_offset": 210265,
+      "source_length": 45
+    },
+    {
+      "row": 184,
+      "chapter": "第九章",
+      "source_line": 2487,
+      "source_offset": 214299,
+      "source_length": 43
+    },
+    {
+      "row": 185,
+      "chapter": "第九章",
+      "source_line": 2489,
+      "source_offset": 214574,
+      "source_length": 61
+    },
+    {
+      "row": 186,
+      "chapter": "第九章",
+      "source_line": 2511,
+      "source_offset": 215885,
+      "source_length": 23
+    },
+    {
+      "row": 187,
+      "chapter": "第九章",
+      "source_line": 2589,
+      "source_offset": 220753,
+      "source_length": 36
+    },
+    {
+      "row": 188,
+      "chapter": "第九章",
+      "source_line": 2615,
+      "source_offset": 224025,
+      "source_length": 17
+    },
+    {
+      "row": 189,
+      "chapter": "第九章",
+      "source_line": 2617,
+      "source_offset": 224363,
+      "source_length": 35
+    },
+    {
+      "row": 190,
+      "chapter": "第九章",
+      "source_line": 2635,
+      "source_offset": 225449,
+      "source_length": 19
+    },
+    {
+      "row": 191,
+      "chapter": "第九章",
+      "source_line": 2659,
+      "source_offset": 227301,
+      "source_length": 21
+    },
+    {
+      "row": 192,
+      "chapter": "第九章",
+      "source_line": 2659,
+      "source_offset": 227495,
+      "source_length": 26
+    },
+    {
+      "row": 193,
+      "chapter": "第九章",
+      "source_line": 2661,
+      "source_offset": 227985,
+      "source_length": 31
+    },
+    {
+      "row": 194,
+      "chapter": "第九章",
+      "source_line": 2661,
+      "source_offset": 228016,
+      "source_length": 28
+    },
+    {
+      "row": 195,
+      "chapter": "第九章",
+      "source_line": 2661,
+      "source_offset": 228044,
+      "source_length": 28
+    },
+    {
+      "row": 196,
+      "chapter": "第六章",
+      "source_line": 1704,
+      "source_offset": 132548,
+      "source_length": 24
+    },
+    {
+      "row": 197,
+      "chapter": "第八章",
+      "source_line": 2226,
+      "source_offset": 177922,
+      "source_length": 29
+    },
+    {
+      "row": 198,
+      "chapter": "第六章",
+      "source_line": 1760,
+      "source_offset": 136649,
+      "source_length": 30
+    },
+    {
+      "row": 199,
+      "chapter": "第九章",
+      "source_line": 2429,
+      "source_offset": 204138,
+      "source_length": 28
+    },
+    {
+      "row": 200,
+      "chapter": "第五章",
+      "source_line": 1453,
+      "source_offset": 91402,
+      "source_length": 31
+    },
+    {
+      "row": 201,
+      "chapter": "第四章",
+      "source_line": 1228,
+      "source_offset": 78997,
+      "source_length": 37
+    },
+    {
+      "row": 202,
+      "chapter": "第五章",
+      "source_line": 1503,
+      "source_offset": 110913,
+      "source_length": 27
+    },
+    {
+      "row": 203,
+      "chapter": "第五章",
+      "source_line": 1557,
+      "source_offset": 122037,
+      "source_length": 22
+    },
+    {
+      "row": 204,
+      "chapter": "第六章",
+      "source_line": 1578,
+      "source_offset": 123078,
+      "source_length": 45
+    },
+    {
+      "row": 205,
+      "chapter": "第三章",
+      "source_line": 651,
+      "source_offset": 46025,
+      "source_length": 28
+    },
+    {
+      "row": 206,
+      "chapter": "第三章",
+      "source_line": 493,
+      "source_offset": 38382,
+      "source_length": 35
+    },
+    {
+      "row": 207,
+      "chapter": "第九章",
+      "source_line": 2435,
+      "source_offset": 205519,
+      "source_length": 44
+    },
+    {
+      "row": 208,
+      "chapter": "第八章",
+      "source_line": 2240,
+      "source_offset": 180868,
+      "source_length": 26
+    },
+    {
+      "row": 209,
+      "chapter": "第四章",
+      "source_line": 1278,
+      "source_offset": 82241,
+      "source_length": 62
+    },
+    {
+      "row": 210,
+      "chapter": "第七章",
+      "source_line": 1919,
+      "source_offset": 151592,
+      "source_length": 23
+    },
+    {
+      "row": 211,
+      "chapter": "第五章",
+      "source_line": 1553,
+      "source_offset": 121340,
+      "source_length": 22
+    },
+    {
+      "row": 212,
+      "chapter": "第五章",
+      "source_line": 1481,
+      "source_offset": 101406,
+      "source_length": 32
+    },
+    {
+      "row": 213,
+      "chapter": "第五章",
+      "source_line": 1481,
+      "source_offset": 101964,
+      "source_length": 38
+    },
+    {
+      "row": 214,
+      "chapter": "第五章",
+      "source_line": 1353,
+      "source_offset": 87002,
+      "source_length": 32
+    },
+    {
+      "row": 215,
+      "chapter": "第三章",
+      "source_line": 565,
+      "source_offset": 41622,
+      "source_length": 40
+    },
+    {
+      "row": 216,
+      "chapter": "第九章",
+      "source_line": 2399,
+      "source_offset": 197829,
+      "source_length": 28
+    },
+    {
+      "row": 217,
+      "chapter": "第一章",
+      "source_line": 123,
+      "source_offset": 4578,
+      "source_length": 33
+    },
+    {
+      "row": 218,
+      "chapter": "第一章",
+      "source_line": 141,
+      "source_offset": 9766,
+      "source_length": 26
+    },
+    {
+      "row": 219,
+      "chapter": "第八章",
+      "source_line": 2246,
+      "source_offset": 182303,
+      "source_length": 28
+    },
+    {
+      "row": 220,
+      "chapter": "第六章",
+      "source_line": 1840,
+      "source_offset": 143470,
+      "source_length": 50
+    },
+    {
+      "row": 221,
+      "chapter": "第一章",
+      "source_line": 109,
+      "source_offset": 3016,
+      "source_length": 26
+    },
+    {
+      "row": 222,
+      "chapter": "第一章",
+      "source_line": 109,
+      "source_offset": 2735,
+      "source_length": 24
+    },
+    {
+      "row": 223,
+      "chapter": "第六章",
+      "source_line": 1812,
+      "source_offset": 140024,
+      "source_length": 22
+    },
+    {
+      "row": 224,
+      "chapter": "第一章",
+      "source_line": 109,
+      "source_offset": 2808,
+      "source_length": 36
+    },
+    {
+      "row": 225,
+      "chapter": "第三章",
+      "source_line": 1119,
+      "source_offset": 67021,
+      "source_length": 28
+    },
+    {
+      "row": 226,
+      "chapter": "第九章",
+      "source_line": 2603,
+      "source_offset": 222991,
+      "source_length": 30
+    },
+    {
+      "row": 227,
+      "chapter": "第八章",
+      "source_line": 2274,
+      "source_offset": 186072,
+      "source_length": 50
+    },
+    {
+      "row": 228,
+      "chapter": "第九章",
+      "source_line": 2465,
+      "source_offset": 211604,
+      "source_length": 27
+    },
+    {
+      "row": 229,
+      "chapter": "第五章",
+      "source_line": 1453,
+      "source_offset": 91307,
+      "source_length": 23
+    },
+    {
+      "row": 230,
+      "chapter": "第三章",
+      "source_line": 561,
+      "source_offset": 41234,
+      "source_length": 42
+    },
+    {
+      "row": 231,
+      "chapter": "第三章",
+      "source_line": 757,
+      "source_offset": 50108,
+      "source_length": 37
+    },
+    {
+      "row": 232,
+      "chapter": "第七章",
+      "source_line": 1985,
+      "source_offset": 159161,
+      "source_length": 30
+    },
+    {
+      "row": 233,
+      "chapter": "第七章",
+      "source_line": 2113,
+      "source_offset": 168486,
+      "source_length": 27
+    },
+    {
+      "row": 234,
+      "chapter": "第二章",
+      "source_line": 294,
+      "source_offset": 21801,
+      "source_length": 53
+    },
+    {
+      "row": 235,
+      "chapter": "第三章",
+      "source_line": 413,
+      "source_offset": 33472,
+      "source_length": 53
+    },
+    {
+      "row": 236,
+      "chapter": "第七章",
+      "source_line": 1925,
+      "source_offset": 152914,
+      "source_length": 23
+    },
+    {
+      "row": 237,
+      "chapter": "第五章",
+      "source_line": 1371,
+      "source_offset": 87468,
+      "source_length": 36
+    },
+    {
+      "row": 238,
+      "chapter": "第六章",
+      "source_line": 1582,
+      "source_offset": 124309,
+      "source_length": 34
+    },
+    {
+      "row": 239,
+      "chapter": "第三章",
+      "source_line": 607,
+      "source_offset": 44101,
+      "source_length": 29
+    },
+    {
+      "row": 240,
+      "chapter": "第五章",
+      "source_line": 1503,
+      "source_offset": 111039,
+      "source_length": 27
+    },
+    {
+      "row": 241,
+      "chapter": "第八章",
+      "source_line": 2264,
+      "source_offset": 183796,
+      "source_length": 42
+    },
+    {
+      "row": 242,
+      "chapter": "第八章",
+      "source_line": 2372,
+      "source_offset": 194412,
+      "source_length": 24
+    },
+    {
+      "row": 243,
+      "chapter": "第五章",
+      "source_line": 1461,
+      "source_offset": 94557,
+      "source_length": 32
+    },
+    {
+      "row": 244,
+      "chapter": "第八章",
+      "source_line": 2372,
+      "source_offset": 194820,
+      "source_length": 33
+    },
+    {
+      "row": 245,
+      "chapter": "第九章",
+      "source_line": 2615,
+      "source_offset": 224156,
+      "source_length": 55
+    },
+    {
+      "row": 246,
+      "chapter": "第五章",
+      "source_line": 1463,
+      "source_offset": 95411,
+      "source_length": 30
+    },
+    {
+      "row": 247,
+      "chapter": "第六章",
+      "source_line": 1778,
+      "source_offset": 138526,
+      "source_length": 43
+    },
+    {
+      "row": 248,
+      "chapter": "第五章",
+      "source_line": 1501,
+      "source_offset": 109535,
+      "source_length": 24
+    },
+    {
+      "row": 249,
+      "chapter": "第八章",
+      "source_line": 2246,
+      "source_offset": 182708,
+      "source_length": 28
+    },
+    {
+      "row": 250,
+      "chapter": "第七章",
+      "source_line": 2101,
+      "source_offset": 167377,
+      "source_length": 22
+    },
+    {
+      "row": 251,
+      "chapter": "第四章",
+      "source_line": 1210,
+      "source_offset": 77696,
+      "source_length": 26
+    },
+    {
+      "row": 252,
+      "chapter": "第六章",
+      "source_line": 1846,
+      "source_offset": 144954,
+      "source_length": 32
+    },
+    {
+      "row": 253,
+      "chapter": "第四章",
+      "source_line": 1222,
+      "source_offset": 78617,
+      "source_length": 38
+    },
+    {
+      "row": 254,
+      "chapter": "第五章",
+      "source_line": 1477,
+      "source_offset": 100168,
+      "source_length": 44
+    },
+    {
+      "row": 255,
+      "chapter": "第七章",
+      "source_line": 2039,
+      "source_offset": 163366,
+      "source_length": 42
+    },
+    {
+      "row": 256,
+      "chapter": "第五章",
+      "source_line": 1457,
+      "source_offset": 93357,
+      "source_length": 44
+    },
+    {
+      "row": 257,
+      "chapter": "第三章",
+      "source_line": 529,
+      "source_offset": 40499,
+      "source_length": 27
+    },
+    {
+      "row": 258,
+      "chapter": "第一章",
+      "source_line": 109,
+      "source_offset": 2914,
+      "source_length": 35
+    },
+    {
+      "row": 259,
+      "chapter": "第九章",
+      "source_line": 2581,
+      "source_offset": 220353,
+      "source_length": 24
+    },
+    {
+      "row": 260,
+      "chapter": "第五章",
+      "source_line": 1537,
+      "source_offset": 116558,
+      "source_length": 22
+    },
+    {
+      "row": 261,
+      "chapter": "第三章",
+      "source_line": 1105,
+      "source_offset": 65559,
+      "source_length": 22
+    },
+    {
+      "row": 262,
+      "chapter": "第五章",
+      "source_line": 1543,
+      "source_offset": 117885,
+      "source_length": 68
+    },
+    {
+      "row": 263,
+      "chapter": "第三章",
+      "source_line": 623,
+      "source_offset": 45064,
+      "source_length": 31
+    },
+    {
+      "row": 264,
+      "chapter": "第四章",
+      "source_line": 1202,
+      "source_offset": 75791,
+      "source_length": 30
+    },
+    {
+      "row": 265,
+      "chapter": "第八章",
+      "source_line": 2224,
+      "source_offset": 176611,
+      "source_length": 51
+    },
+    {
+      "row": 266,
+      "chapter": "第五章",
+      "source_line": 1447,
+      "source_offset": 91114,
+      "source_length": 22
+    },
+    {
+      "row": 267,
+      "chapter": "第二章",
+      "source_line": 334,
+      "source_offset": 27694,
+      "source_length": 28
+    },
+    {
+      "row": 268,
+      "chapter": "第七章",
+      "source_line": 2115,
+      "source_offset": 169404,
+      "source_length": 24
+    },
+    {
+      "row": 269,
+      "chapter": "第三章",
+      "source_line": 613,
+      "source_offset": 44328,
+      "source_length": 26
+    },
+    {
+      "row": 270,
+      "chapter": "第七章",
+      "source_line": 2041,
+      "source_offset": 163941,
+      "source_length": 30
+    },
+    {
+      "row": 271,
+      "chapter": "第六章",
+      "source_line": 1752,
+      "source_offset": 135008,
+      "source_length": 26
+    },
+    {
+      "row": 272,
+      "chapter": "第三章",
+      "source_line": 619,
+      "source_offset": 44889,
+      "source_length": 25
+    },
+    {
+      "row": 273,
+      "chapter": "第七章",
+      "source_line": 1889,
+      "source_offset": 149956,
+      "source_length": 25
+    },
+    {
+      "row": 274,
+      "chapter": "第一章",
+      "source_line": 135,
+      "source_offset": 5778,
+      "source_length": 23
+    },
+    {
+      "row": 275,
+      "chapter": "第二章",
+      "source_line": 318,
+      "source_offset": 24120,
+      "source_length": 27
+    },
+    {
+      "row": 276,
+      "chapter": "第六章",
+      "source_line": 1582,
+      "source_offset": 124276,
+      "source_length": 25
+    },
+    {
+      "row": 277,
+      "chapter": "第七章",
+      "source_line": 2081,
+      "source_offset": 165818,
+      "source_length": 24
+    },
+    {
+      "row": 278,
+      "chapter": "第七章",
+      "source_line": 1911,
+      "source_offset": 150918,
+      "source_length": 41
+    },
+    {
+      "row": 279,
+      "chapter": "第五章",
+      "source_line": 1547,
+      "source_offset": 118771,
+      "source_length": 65
+    },
+    {
+      "row": 280,
+      "chapter": "第四章",
+      "source_line": 1196,
+      "source_offset": 74377,
+      "source_length": 25
+    },
+    {
+      "row": 281,
+      "chapter": "第六章",
+      "source_line": 1582,
+      "source_offset": 124379,
+      "source_length": 31
+    },
+    {
+      "row": 282,
+      "chapter": "第四章",
+      "source_line": 1240,
+      "source_offset": 80035,
+      "source_length": 29
+    },
+    {
+      "row": 283,
+      "chapter": "第三章",
+      "source_line": 1025,
+      "source_offset": 61987,
+      "source_length": 24
+    },
+    {
+      "row": 284,
+      "chapter": "第三章",
+      "source_line": 1097,
+      "source_offset": 65238,
+      "source_length": 32
+    },
+    {
+      "row": 285,
+      "chapter": "第三章",
+      "source_line": 1117,
+      "source_offset": 66852,
+      "source_length": 34
+    },
+    {
+      "row": 286,
+      "chapter": "第九章",
+      "source_line": 2603,
+      "source_offset": 223101,
+      "source_length": 29
+    },
+    {
+      "row": 287,
+      "chapter": "第五章",
+      "source_line": 1485,
+      "source_offset": 103669,
+      "source_length": 22
+    },
+    {
+      "row": 288,
+      "chapter": "第八章",
+      "source_line": 2226,
+      "source_offset": 177951,
+      "source_length": 26
+    },
+    {
+      "row": 289,
+      "chapter": "第三章",
+      "source_line": 773,
+      "source_offset": 50794,
+      "source_length": 44
+    },
+    {
+      "row": 290,
+      "chapter": "第二章",
+      "source_line": 274,
+      "source_offset": 19660,
+      "source_length": 24
+    },
+    {
+      "row": 291,
+      "chapter": "第六章",
+      "source_line": 1812,
+      "source_offset": 140101,
+      "source_length": 41
+    },
+    {
+      "row": 292,
+      "chapter": "第五章",
+      "source_line": 1477,
+      "source_offset": 99634,
+      "source_length": 44
+    },
+    {
+      "row": 293,
+      "chapter": "第五章",
+      "source_line": 1473,
+      "source_offset": 98135,
+      "source_length": 36
+    },
+    {
+      "row": 294,
+      "chapter": "第三章",
+      "source_line": 755,
+      "source_offset": 49755,
+      "source_length": 22
+    },
+    {
+      "row": 295,
+      "chapter": "第九章",
+      "source_line": 2595,
+      "source_offset": 221613,
+      "source_length": 61
+    },
+    {
+      "row": 296,
+      "chapter": "第七章",
+      "source_line": 2113,
+      "source_offset": 168807,
+      "source_length": 29
+    },
+    {
+      "row": 297,
+      "chapter": "第一章",
+      "source_line": 139,
+      "source_offset": 8776,
+      "source_length": 31
+    },
+    {
+      "row": 298,
+      "chapter": "第五章",
+      "source_line": 1535,
+      "source_offset": 115139,
+      "source_length": 26
+    },
+    {
+      "row": 299,
+      "chapter": "第三章",
+      "source_line": 801,
+      "source_offset": 51773,
+      "source_length": 27
+    },
+    {
+      "row": 300,
+      "chapter": "第五章",
+      "source_line": 1479,
+      "source_offset": 100502,
+      "source_length": 38
+    },
+    {
+      "row": 301,
+      "chapter": "第九章",
+      "source_line": 2531,
+      "source_offset": 218185,
+      "source_length": 30
+    },
+    {
+      "row": 302,
+      "chapter": "第九章",
+      "source_line": 2437,
+      "source_offset": 206424,
+      "source_length": 26
+    },
+    {
+      "row": 303,
+      "chapter": "第六章",
+      "source_line": 1844,
+      "source_offset": 144629,
+      "source_length": 25
+    },
+    {
+      "row": 304,
+      "chapter": "第八章",
+      "source_line": 2336,
+      "source_offset": 192421,
+      "source_length": 24
+    },
+    {
+      "row": 305,
+      "chapter": "第五章",
+      "source_line": 1501,
+      "source_offset": 109652,
+      "source_length": 42
+    },
+    {
+      "row": 306,
+      "chapter": "第五章",
+      "source_line": 1535,
+      "source_offset": 115578,
+      "source_length": 50
+    },
+    {
+      "row": 307,
+      "chapter": "第八章",
+      "source_line": 2344,
+      "source_offset": 193173,
+      "source_length": 23
+    },
+    {
+      "row": 308,
+      "chapter": "第六章",
+      "source_line": 1752,
+      "source_offset": 135034,
+      "source_length": 44
+    },
+    {
+      "row": 309,
+      "chapter": "第三章",
+      "source_line": 773,
+      "source_offset": 50724,
+      "source_length": 25
+    },
+    {
+      "row": 310,
+      "chapter": "第二章",
+      "source_line": 262,
+      "source_offset": 18272,
+      "source_length": 27
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "space_id": "Playoung2818/Reanimation-Jutsu",
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "base_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "qian_adapter": "Playoung2818/qianzhongshu-qwen2.5-7b-curated-lora-v1",
+  "qian_revision": "83395c25502b9579f2d01802af19a841cad57eec",
+  "lincoln_adapter": "Playoung2818/lincoln-qwen2.5-7b-lora",
+  "lincoln_revision": "5a82215478a821fe83e28c91ab30f22174d2ebd2",
+  "dataset_id": "Playoung2818/qianzhongshu-curated-rewrite-data",
+  "dataset_revision": "1524ce35923b996e6c5a498a4220769980fa50f5",
+  "training_pairs": 285,
+  "validation_pairs": 25,
+  "best_validation_loss": 2.1883339881896973,
+  "training_job_id": "6ac2b36b404719ba376507af"
+}

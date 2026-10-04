@@ -1,6 +1,6 @@
 # Reanimation Jutsu Workflow
 
-Open the [Reanimation Jutsu Space](https://huggingface.co/spaces/Playoung2818/Zhongshu_Qian).
+Open the [Reanimation Jutsu Space](https://huggingface.co/spaces/Playoung2818/Reanimation-Jutsu).
 
 
 The current Space provides two giants:
@@ -51,16 +51,29 @@ Two-tab Gradio Space
 | `example_data/lincoln_eval.jsonl` | Stores the validation split. |
 | `scripts/train_lincoln_hf_job.py` | Runs QLoRA on Hugging Face Jobs. |
 | `huggingface_space/app.py` | Loads both adapters and creates both chat tabs. |
+| `example_data/qianzhongshu_rewrite_curated.json` | Stores all 310 modern-input/original-output pairs. |
+| `scripts/prepare_curated_weicheng_dataset.py` | Creates the 285-row training split and 25-row validation split. |
+| `scripts/train_qian_hf_job.py` | Trains a private rewrite adapter on Hugging Face Jobs. |
+| `saved_models/qian_curated_hf_job.json` | Records the job ID, repository IDs, source revisions, and file hashes. |
+| `huggingface_space/deployment.json` | Records the adapter revisions deployed to the Space. |
 
 ## Data design
 
 The [dataset playground](Dataset_Playground.ipynb) provides dataset edits, experimental copies, and a small LoRA experiment in one notebook. It compares model responses after training on original and edited data.
 
-The Qian persona uses examples from *围城* (Weicheng). Its canonical datasets are `example_data/qianzhongshu_train.jsonl` and `example_data/qianzhongshu_eval.jsonl`.
+The Qian module is now trained as a rewrite/style-transfer adapter. The user provides one sentence or a short paragraph. The model rewrites it in a Qian-inspired style while preserving the original meaning.
 
-These files contain 300 train examples and 26 validation examples. Both Qian training scripts use these files. The duplicate `weicheng_*.jsonl` files were removed.
+The rewrite datasets are `example_data/qianzhongshu_rewrite_train.jsonl` and `example_data/qianzhongshu_rewrite_eval.jsonl`.
 
-The script `scripts/prepare_weicheng_dataset.py` creates the Qian datasets from `围城.txt`.
+The file `example_data/qianzhongshu_rewrite_curated.json` contains 310 pairs: 10 preview examples and 300 additional examples. Each `input` is an individually written modern-Chinese paraphrase. Each `output` is an unchanged sentence from the novel in `围城.txt`. The selected sentences contain no names of people or places. `source_data/weicheng_curated_manifest.json` records the source location of each sentence.
+
+The script `scripts/prepare_curated_weicheng_dataset.py` makes sure that the outputs match the source and that the pairs differ beyond spelling and punctuation. It creates 285 training rows and 25 validation rows. Both Qian training scripts use this file and do not append the old seed examples. The training script requires an NVIDIA GPU with CUDA support.
+
+The remote trainer `scripts/train_qian_hf_job.py` uses `Playoung2818/qianzhongshu-curated-rewrite-data`. It reads only `train.jsonl` and `validation.jsonl` from a fixed dataset revision. It trains for three passes and selects the checkpoint with the lowest validation loss, a measure of prediction error. It saves the adapter to the private repository `Playoung2818/qianzhongshu-qwen2.5-7b-curated-lora-v1`. It does not change the deployed Space.
+
+The job uses one L4 GPU with a two-hour limit. `saved_models/qian_curated_hf_job.json` records the job ID and the dataset and base-model revisions. Use `hf jobs inspect JOB_ID` for its status and `hf jobs logs -f JOB_ID` for live logs. The job receives `HF_TOKEN` as a secret, not as a file or a command-line token.
+
+The older script `scripts/prepare_weicheng_dataset.py` remains available for experiments. Do not use it to replace the curated pairs. Its rewrite mode uses automatic clause deletion, not individually written paraphrases.
 
 The Lincoln source comes from Project Gutenberg eBook 14721.
 
