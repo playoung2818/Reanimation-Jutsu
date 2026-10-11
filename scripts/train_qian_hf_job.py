@@ -72,6 +72,7 @@ def main() -> None:
     parser.add_argument("--model-id", default=MODEL_ID)
     parser.add_argument("--output-dir", default="qian-curated-lora")
     parser.add_argument("--epochs", type=int, default=3)
+    parser.add_argument("--data-review-status", choices=("reviewed", "unreviewed"), default="reviewed")
     args = parser.parse_args()
     if args.epochs < 1:
         parser.error("--epochs must be positive")
@@ -92,6 +93,7 @@ def main() -> None:
     print(f"GPU: {torch.cuda.get_device_name(0)}", flush=True)
     print(f"Dataset: {args.dataset_id}@{args.dataset_revision}", flush=True)
     print(f"Output adapter: {args.model_id}", flush=True)
+    print(f"Dataset review status: {args.data_review_status}", flush=True)
     files = {
         split: hf_hub_download(
             args.dataset_id, filename, repo_type="dataset",
@@ -161,6 +163,7 @@ def main() -> None:
         "base_model": BASE_MODEL, "base_revision": args.base_revision,
         "dataset_id": args.dataset_id, "dataset_revision": args.dataset_revision,
         "train_rows": 285, "validation_rows": 25, "epochs": args.epochs,
+        "data_review_status": args.data_review_status,
         "seed": 2818, "format": "instruction/input/output headings; output-only loss with EOS",
         "file_sha256": {split: hashlib.sha256(Path(path).read_bytes()).hexdigest() for split, path in files.items()},
         "train_metrics": result.metrics, "validation_metrics": metrics,
