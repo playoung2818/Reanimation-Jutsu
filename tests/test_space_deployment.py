@@ -3,9 +3,11 @@ import copy
 import json
 import unittest
 from pathlib import Path
+from threading import Lock
 from types import SimpleNamespace
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, call
 
+from scripts.prepare_zhang_dataset import INSTRUCTION as ZHANG_TRAINING_INSTRUCTION
 from scripts.train_qian_hf_job import build_prompt
 
 
@@ -20,11 +22,11 @@ def app_namespace():
         "os": SimpleNamespace(getenv=lambda key: "test-token"),
         "gr": SimpleNamespace(Error=RuntimeError),
         "spaces": SimpleNamespace(GPU=lambda **kwargs: lambda fn: fn),
-        "torch": MagicMock(), "snapshot_download": MagicMock(),
+        "torch": MagicMock(), "snapshot_download": MagicMock(), "Lock": Lock,
         "AutoTokenizer": MagicMock(), "AutoModelForCausalLM": MagicMock(),
         "BitsAndBytesConfig": MagicMock(), "PeftModel": MagicMock(),
     }
-    namespace["snapshot_download"].side_effect = ["/cached/base", "/cached/qian", "/cached/lincoln"]
+    namespace["snapshot_download"].side_effect = ["/cached/base", "/cached/qian", "/cached/lincoln", "/cached/zhang"]
     namespace["torch"].cuda.is_bf16_supported.return_value = False
     exec(compile(tree, "huggingface_space/app.py", "exec"), namespace)
     return namespace
@@ -40,9 +42,10 @@ class SpaceDeploymentTests(unittest.TestCase):
             and isinstance(node.items[0].context_expr.func, ast.Attribute)
             and node.items[0].context_expr.func.attr == "Tab"
         ]
-        self.assertEqual([tab.args[0].value for tab in tabs], ["钱钟书 Qian Zhongshu", "Abraham Lincoln"])
-        self.assertFalse(any(kw.arg == "visible" and kw.value.value is False for kw in tabs[0].keywords))
-        self.assertTrue(any(kw.arg == "visible" and kw.value.value is False for kw in tabs[1].keywords))
+        self.assertEqual([tab.args[0].value for tab in tabs], ["钱钟书 Qian Zhongshu", "张爱玲 Zhang Ailing", "Abraham Lincoln"])
+        for tab in tabs[:2]:
+            self.assertFalse(any(kw.arg == "visible" and kw.value.value is False for kw in tab.keywords))
+        self.assertTrue(any(kw.arg == "visible" and kw.value.value is False for kw in tabs[2].keywords))
 
     def test_rewrite_prompt_and_revision_match_completed_training(self):
         ns = app_namespace()
@@ -57,21 +60,55 @@ class SpaceDeploymentTests(unittest.TestCase):
         self.assertEqual(ns["respond_qian"](" 原始输入。 ", []), "改写结果")
         ns["generate"].assert_called_once_with(build_prompt(ns["QIAN_INSTRUCTION"], "原始输入。"), "qian")
 
+    def test_zhang_prompt_and_revision_match_training_and_history_is_ignored(self):
+        ns = app_namespace()
+        run = json.loads((ROOT / "huggingface_space/deployment.json").read_text())
+        self.assertEqual(ns["ZHANG_ADAPTER"], run["zhang_adapter"])
+        self.assertEqual(ns["ZHANG_REVISION"], run["zhang_revision"])
+        self.assertEqual(ns["ZHANG_INSTRUCTION"], ZHANG_TRAINING_INSTRUCTION)
+        ns["load_model"] = MagicMock()
+        ns["generate"] = MagicMock(return_value="张爱玲改写结果")
+        history = [{"role": "user", "content": "不要把这个写进提示"}]
+        before = copy.deepcopy(history)
+        self.assertEqual(ns["respond_zhang"](" 今天很开心。 ", history), "张爱玲改写结果")
+        ns["generate"].assert_called_once_with(build_prompt(ZHANG_TRAINING_INSTRUCTION, "今天很开心。"), "zhang")
+        self.assertEqual(history, before)
+
+    def test_all_gpu_handlers_hold_the_shared_model_lock(self):
+        tree = ast.parse((ROOT / "huggingface_space/app.py").read_text(encoding="utf-8"))
+        for name in ("respond_qian", "respond_zhang", "respond_lincoln"):
+            fn = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == name)
+            locks = [n for n in fn.body if isinstance(n, ast.With) and isinstance(n.items[0].context_expr, ast.Name)
+                     and n.items[0].context_expr.id == "model_lock"]
+            self.assertEqual(len(locks), 1)
+            self.assertTrue(any(isinstance(n, ast.Return) for n in locks[0].body))
+            self.assertEqual(fn.decorator_list[0].func.attr, "GPU")
+
     def test_private_adapters_are_downloaded_by_revision_and_cached(self):
         ns = app_namespace()
         ns["prepare_assets"]()
         calls = ns["snapshot_download"].call_args_list
-        self.assertEqual(len(calls), 3)
-        for call, repo, revision in zip(calls,
-                [ns["BASE_MODEL"], ns["QIAN_ADAPTER"], ns["LINCOLN_ADAPTER"]],
-                [ns["BASE_REVISION"], ns["QIAN_REVISION"], ns["LINCOLN_REVISION"]]):
-            self.assertEqual(call.args, (repo,))
-            self.assertEqual(call.kwargs["revision"], revision)
-            self.assertEqual(call.kwargs["token"], "test-token")
-        self.assertEqual(calls[1].kwargs["allow_patterns"], ["adapter_config.json", "adapter_model.safetensors"])
+        self.assertEqual(len(calls), 4)
+        for download, repo, revision in zip(calls,
+                [ns["BASE_MODEL"], ns["QIAN_ADAPTER"], ns["LINCOLN_ADAPTER"], ns["ZHANG_ADAPTER"]],
+                [ns["BASE_REVISION"], ns["QIAN_REVISION"], ns["LINCOLN_REVISION"], ns["ZHANG_REVISION"]]):
+            self.assertEqual(download.args, (repo,))
+            self.assertEqual(download.kwargs["revision"], revision)
+            self.assertEqual(download.kwargs["token"], "test-token")
+        for download in calls[1:]:
+            self.assertEqual(download.kwargs["allow_patterns"], ["adapter_config.json", "adapter_model.safetensors"])
         ns["prepare_assets"]()
-        self.assertEqual(ns["snapshot_download"].call_count, 3)
+        self.assertEqual(ns["snapshot_download"].call_count, 4)
         self.assertEqual(ns["qian_path"], "/cached/qian")
+        self.assertEqual(ns["zhang_path"], "/cached/zhang")
+
+    def test_failed_zhang_download_does_not_cache_partial_assets(self):
+        ns = app_namespace()
+        ns["snapshot_download"].side_effect = ["/cached/base", "/cached/qian", "/cached/lincoln", RuntimeError("access denied")]
+        with self.assertRaisesRegex(RuntimeError, "access denied"):
+            ns["prepare_assets"]()
+        for name in ("base_path", "qian_path", "lincoln_path", "zhang_path"):
+            self.assertIsNone(ns[name])
 
     def test_missing_secret_fails_before_download(self):
         ns = app_namespace()
@@ -80,14 +117,17 @@ class SpaceDeploymentTests(unittest.TestCase):
             ns["prepare_assets"]()
         ns["snapshot_download"].assert_not_called()
 
-    def test_both_adapters_load_from_local_snapshots(self):
+    def test_all_adapters_load_from_local_snapshots(self):
         ns = app_namespace()
         ns["load_model"]()
         self.assertEqual(ns["AutoTokenizer"].from_pretrained.call_args.args, ("/cached/base",))
         self.assertEqual(ns["AutoModelForCausalLM"].from_pretrained.call_args.args, ("/cached/base",))
         self.assertTrue(ns["AutoModelForCausalLM"].from_pretrained.call_args.kwargs["local_files_only"])
         self.assertEqual(ns["PeftModel"].from_pretrained.call_args.args[1], "/cached/qian")
-        ns["model"].load_adapter.assert_called_once_with("/cached/lincoln", adapter_name="lincoln", is_trainable=False)
+        self.assertEqual(ns["model"].load_adapter.call_args_list, [
+            call("/cached/lincoln", adapter_name="lincoln", is_trainable=False),
+            call("/cached/zhang", adapter_name="zhang", is_trainable=False),
+        ])
         ns["load_model"]()
         self.assertEqual(ns["PeftModel"].from_pretrained.call_count, 1)
 

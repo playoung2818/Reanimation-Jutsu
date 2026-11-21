@@ -11,5 +11,14 @@
   "training_pairs": 285,
   "validation_pairs": 25,
   "best_validation_loss": 2.1883339881896973,
-  "training_job_id": "6ac2b36b404719ba376507af"
+  "training_job_id": "6ac2b36b404719ba376507af",
+  "zhang_adapter": "Playoung2818/zhangailing-qwen2.5-7b-curated-lora-v1",
+  "zhang_revision": "6375152a5939596052e0e8d6734a48de61c040b6",
+  "zhang_dataset_id": "Playoung2818/zhangailing-curated-rewrite-data",
+  "zhang_dataset_revision": "2140c8e7f9b51415d54bf6ab898c7988e8ae2ebc",
+  "zhang_training_pairs": 285,
+  "zhang_validation_pairs": 25,
+  "zhang_best_validation_loss": 2.0579516887664795,
+  "zhang_training_job_id": "6acbc77cfee2c90070199d63",
+  "zhang_data_review_status": "unreviewed"
 }

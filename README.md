@@ -3,7 +3,7 @@
 Open the [Reanimation Jutsu Space](https://huggingface.co/spaces/Playoung2818/Reanimation-Jutsu).
 
 
-The Space currently shows the Qian Zhongshu rewrite tab. The Lincoln tab is temporarily hidden. Both adapters remain configured.
+The Space shows the Qian Zhongshu and experimental Zhang Ailing rewrite tabs. The Lincoln tab is temporarily hidden. All three adapters remain configured.
 
 
 ## Workflow
@@ -42,6 +42,18 @@ Qwen/Qwen2.5-7B-Instruct + Qian adapter + existing Lincoln adapter
 Gradio Space on ZeroGPU
 ```
 
+## Zhang Ailing workflow
+
+The [Zhang Ailing guide](docs/zhang_ailing_workflow.md) follows the reviewed Qian GPT process using 《小团圆》, 《倾城之恋》, and 《金锁记》.
+The three local texts and 310 draft modern-input/original-output pairs are prepared.
+All inputs are filled in `example_data/zhangailing_rewrite_candidates.json` and `example_data/zhangailing_rewrite_curated.json`.
+All review flags remain false. The experimental L4 job completed, and the private adapter export contains all required files.
+The adapter is `Playoung2818/zhangailing-qwen2.5-7b-curated-lora-v1`. Rewrite quality still needs testing.
+Track [the Zhang training job](https://huggingface.co/jobs/Playoung2818/6acbc77cfee2c90070199d63).
+The Space now includes the Zhang Ailing tab, pinned to adapter revision `6375152a5939596052e0e8d6734a48de61c040b6`.
+`scripts/launch_zhang_hf_job.py` checks the data locally by default and starts a paid L4 job only with `--submit`.
+The default requires human review. `--allow-unreviewed` records draft-data status without changing the review flags.
+
 ## Important files
 
 | File | Purpose |
@@ -52,7 +64,7 @@ Gradio Space on ZeroGPU
 | `example_data/lincoln_train.jsonl` | Stores the final train split. |
 | `example_data/lincoln_eval.jsonl` | Stores the validation split. |
 | `scripts/train_lincoln_hf_job.py` | Runs QLoRA on Hugging Face Jobs. |
-| `huggingface_space/app.py` | Loads both adapters|
+| `huggingface_space/app.py` | Loads all three adapters and serves the rewrite tabs. |
 | `example_data/qianzhongshu_rewrite_curated.json` | Stores all 310 modern-input/original-output pairs. |
 | `scripts/prepare_curated_weicheng_dataset.py` | Creates the 285-row training split and 25-row validation split. |
 | `scripts/train_qian_hf_job.py` | Trains a private rewrite adapter on Hugging Face Jobs. |

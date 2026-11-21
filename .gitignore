@@ -131,6 +131,10 @@ dmypy.json
 
 # Project data and model artifacts
 围城.txt
+# Local Zhang Ailing source texts and derived excerpts are not for publication.
+source_data/zhang_ailing/
+example_data/zhangailing_*.json
+example_data/zhangailing_*.jsonl
 saved_models/
 models/
 outputs/

@@ -1,4 +1,5 @@
 import os
+from threading import Lock
 
 import gradio as gr
 import spaces
@@ -14,10 +15,16 @@ QIAN_ADAPTER = "Playoung2818/qianzhongshu-qwen2.5-7b-curated-lora-v1"
 QIAN_REVISION = "83395c25502b9579f2d01802af19a841cad57eec"
 LINCOLN_ADAPTER = "Playoung2818/lincoln-qwen2.5-7b-lora"
 LINCOLN_REVISION = "5a82215478a821fe83e28c91ab30f22174d2ebd2"
+ZHANG_ADAPTER = "Playoung2818/zhangailing-qwen2.5-7b-curated-lora-v1"
+ZHANG_REVISION = "6375152a5939596052e0e8d6734a48de61c040b6"
 HF_TOKEN = os.getenv("HF_TOKEN")
 QIAN_INSTRUCTION = (
     "请将下面的现代中文改写成带有讽刺、机智、比喻和冷峭观察的文学中文。"
     "保持原意，不回答问题，不解释，不补充新事实。"
+)
+ZHANG_INSTRUCTION = (
+    "请将下面的现代中文改写成张爱玲式的文学中文。保持原意，不回答问题，不解释，不补充新事实。"
+    "语言应有细腻的心理观察、具体的日常意象、含蓄的反讽和苍凉感。"
 )
 LINCOLN_INSTRUCTION = (
     "You are a historical analysis assistant inspired by Abraham Lincoln's "
@@ -31,15 +38,18 @@ model = None
 base_path = None
 qian_path = None
 lincoln_path = None
+zhang_path = None
+# All tabs share one mutable model. Keep adapter selection and generation together.
+model_lock = Lock()
 
 
 def prepare_assets() -> None:
     """Download on CPU before accepting requests, not during a GPU allocation."""
-    global base_path, qian_path, lincoln_path
+    global base_path, qian_path, lincoln_path, zhang_path
     if base_path is not None:
         return
     if not HF_TOKEN:
-        raise RuntimeError("Add HF_TOKEN as a Space secret with read access to both private adapters.")
+        raise RuntimeError("Add HF_TOKEN as a Space secret with read access to all three private adapters.")
     base = snapshot_download(
         BASE_MODEL, revision=BASE_REVISION, token=HF_TOKEN,
         allow_patterns=[
@@ -54,9 +64,13 @@ def prepare_assets() -> None:
     lincoln = snapshot_download(
         LINCOLN_ADAPTER, revision=LINCOLN_REVISION, token=HF_TOKEN, allow_patterns=adapter_files,
     )
-    base_path, qian_path, lincoln_path = base, qian, lincoln
+    zhang = snapshot_download(
+        ZHANG_ADAPTER, revision=ZHANG_REVISION, token=HF_TOKEN, allow_patterns=adapter_files,
+    )
+    base_path, qian_path, lincoln_path, zhang_path = base, qian, lincoln, zhang
     print(f"Cached rewrite adapter: {QIAN_ADAPTER}@{QIAN_REVISION}", flush=True)
     print(f"Cached Lincoln adapter: {LINCOLN_ADAPTER}@{LINCOLN_REVISION}", flush=True)
+    print(f"Cached Zhang adapter: {ZHANG_ADAPTER}@{ZHANG_REVISION}", flush=True)
 
 
 def load_model() -> None:
@@ -85,6 +99,7 @@ def load_model() -> None:
         base_model, qian_path, adapter_name="qian", is_trainable=False,
     )
     loaded_model.load_adapter(lincoln_path, adapter_name="lincoln", is_trainable=False)
+    loaded_model.load_adapter(zhang_path, adapter_name="zhang", is_trainable=False)
     loaded_model.config.use_cache = True
     loaded_model.eval()
     tokenizer, model = loaded_tokenizer, loaded_model
@@ -113,33 +128,47 @@ def generate(prompt: str, adapter_name: str) -> str:
 
 @spaces.GPU(duration=120)
 def respond_qian(message: str, history: list[dict[str, str]]) -> str:
-    load_model()
     del history
-    prompt = (
-        f"### 指令:\n{QIAN_INSTRUCTION}\n\n"
-        f"### 输入:\n{message.strip()}\n\n"
-        "### 输出:\n"
-    )
-    return generate(prompt, "qian")
+    with model_lock:
+        load_model()
+        prompt = (
+            f"### 指令:\n{QIAN_INSTRUCTION}\n\n"
+            f"### 输入:\n{message.strip()}\n\n"
+            "### 输出:\n"
+        )
+        return generate(prompt, "qian")
+
+
+@spaces.GPU(duration=120)
+def respond_zhang(message: str, history: list[dict[str, str]]) -> str:
+    del history
+    with model_lock:
+        load_model()
+        prompt = (
+            f"### 指令:\n{ZHANG_INSTRUCTION}\n\n"
+            f"### 输入:\n{message.strip()}\n\n"
+            "### 输出:\n"
+        )
+        return generate(prompt, "zhang")
 
 
 @spaces.GPU(duration=120)
 def respond_lincoln(message: str, history: list[dict[str, str]]) -> str:
-    load_model()
-
-    messages = [{"role": "system", "content": LINCOLN_INSTRUCTION}]
-    for item in history[-10:]:
-        role = item.get("role")
-        content = item.get("content")
-        if role in {"user", "assistant"} and isinstance(content, str):
-            messages.append({"role": role, "content": content})
-    messages.append({"role": "user", "content": message.strip()})
-    prompt = tokenizer.apply_chat_template(
-        messages,
-        tokenize=False,
-        add_generation_prompt=True,
-    )
-    return generate(prompt, "lincoln")
+    with model_lock:
+        load_model()
+        messages = [{"role": "system", "content": LINCOLN_INSTRUCTION}]
+        for item in history[-10:]:
+            role = item.get("role")
+            content = item.get("content")
+            if role in {"user", "assistant"} and isinstance(content, str):
+                messages.append({"role": role, "content": content})
+        messages.append({"role": "user", "content": message.strip()})
+        prompt = tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True,
+        )
+        return generate(prompt, "lincoln")
 
 
 with gr.Blocks(title="Reanimation Jutsu") as demo:
@@ -153,6 +182,21 @@ with gr.Blocks(title="Reanimation Jutsu") as demo:
                 "老实人也会有恶意，而且往往让人毫无防备地。",
                 "一个人为了显得有学问，总爱引用自己不懂的书。",
                 "他拼命回想，却始终留不住那些记忆。"
+            ],
+        )
+    with gr.Tab("张爱玲 Zhang Ailing"):
+        gr.ChatInterface(
+            fn=respond_zhang,
+            cache_examples=False,
+            description=(
+                "实验版：将一句话或一小段文字改写成张爱玲式的文学中文。"
+                "请检查改写是否保留原意，是否添加了原文没有的信息。"
+            ),
+            examples=[
+                "今天早晨跑了步，吃了早饭，我很开心。",
+                "下雨了，我忘了带伞。",
+                "我等了他半小时，他还是没来。",
+                "今天没有什么特别的事，但我觉得很满足。",
             ],
         )
     with gr.Tab("Abraham Lincoln", visible=False):
